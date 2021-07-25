@@ -1,81 +1,69 @@
 {
-  "_from": "@bcoe/v8-coverage@^0.2.3",
-  "_id": "@bcoe/v8-coverage@0.2.3",
+  "_from": "@cnakazawa/watch@^1.0.3",
+  "_id": "@cnakazawa/watch@1.0.4",
   "_inBundle": false,
-  "_integrity": "sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==",
-  "_location": "/@bcoe/v8-coverage",
+  "_integrity": "sha512-v9kIhKwjeZThiWrLmj0y17CWoyddASLj9O2yvbZkbvw/N3rWOYy9zkV66ursAoVr0mV15bL8g0c4QZUE6cdDoQ==",
+  "_location": "/@cnakazawa/watch",
   "_phantomChildren": {},
   "_requested": {
     "type": "range",
     "registry": true,
-    "raw": "@bcoe/v8-coverage@^0.2.3",
-    "name": "@bcoe/v8-coverage",
-    "escapedName": "@bcoe%2fv8-coverage",
-    "scope": "@bcoe",
-    "rawSpec": "^0.2.3",
+    "raw": "@cnakazawa/watch@^1.0.3",
+    "name": "@cnakazawa/watch",
+    "escapedName": "@cnakazawa%2fwatch",
+    "scope": "@cnakazawa",
+    "rawSpec": "^1.0.3",
     "saveSpec": null,
-    "fetchSpec": "^0.2.3"
+    "fetchSpec": "^1.0.3"
   },
   "_requiredBy": [
-    "/@jest/reporters"
+    "/sane"
   ],
-  "_resolved": "https://registry.npmjs.org/@bcoe/v8-coverage/-/v8-coverage-0.2.3.tgz",
-  "_shasum": "75a2e8b51cb758a7553d6804a5932d7aace75c39",
-  "_spec": "@bcoe/v8-coverage@^0.2.3",
-  "_where": "C:\\Users\\krish\\access-api-react\\node_modules\\@jest\\reporters",
+  "_resolved": "https://registry.npmjs.org/@cnakazawa/watch/-/watch-1.0.4.tgz",
+  "_shasum": "f864ae85004d0fcab6f50be9141c4da368d1656a",
+  "_spec": "@cnakazawa/watch@^1.0.3",
+  "_where": "C:\\Users\\krish\\access-api-react\\node_modules\\sane",
   "author": {
-    "name": "Charles Samborski",
-    "email": "demurgos@demurgos.net",
-    "url": "https://demurgos.net"
+    "name": "Mikeal Rogers",
+    "email": "mikeal.rogers@gmail.com"
+  },
+  "bin": {
+    "watch": "cli.js"
   },
   "bugs": {
-    "url": "https://github.com/demurgos/v8-coverage/issues"
+    "url": "https://github.com/mikeal/watch/issues"
   },
   "bundleDependencies": false,
+  "dependencies": {
+    "exec-sh": "^0.3.2",
+    "minimist": "^1.2.0"
+  },
   "deprecated": false,
-  "description": "Helper functions for V8 coverage files.",
-  "devDependencies": {
-    "@types/chai": "^4.1.4",
-    "@types/gulp": "^4.0.5",
-    "@types/minimist": "^1.2.0",
-    "@types/mocha": "^5.2.2",
-    "@types/node": "^10.5.4",
-    "chai": "^4.1.2",
-    "codecov": "^3.0.2",
-    "gulp": "^4.0.0",
-    "gulp-cli": "^2.0.1",
-    "minimist": "^1.2.0",
-    "pre-commit": "^1.2.2",
-    "ts-node": "^8.3.0",
-    "turbo-gulp": "^0.20.1"
+  "description": "Utilities for watching file trees.",
+  "directories": {
+    "lib": "lib"
   },
-  "homepage": "https://demurgos.github.io/v8-coverage",
-  "license": "MIT",
-  "main": "dist/lib/index",
-  "name": "@bcoe/v8-coverage",
-  "nyc": {
-    "include": [
-      "build/test/lib/**/*.js",
-      "build/test/lib/**/*.mjs"
-    ],
-    "reporter": [
-      "text",
-      "html"
-    ],
-    "extension": [
-      ".mjs"
-    ]
+  "engines": {
+    "node": ">=0.1.95"
   },
+  "homepage": "https://github.com/mikeal/watch",
+  "keywords": [
+    "util",
+    "utility",
+    "fs",
+    "files"
+  ],
+  "license": "Apache-2.0",
+  "main": "./main",
+  "name": "@cnakazawa/watch",
   "repository": {
     "type": "git",
-    "url": "git://github.com/demurgos/v8-coverage.git"
+    "url": "git://github.com/mikeal/watch.git"
   },
   "scripts": {
-    "lint": "gulp :lint:fix",
-    "prepare": "gulp all:tsconfig.json && gulp dist",
-    "pretest": "gulp lib:build",
-    "test": "gulp test"
+    "release:major": "bash scripts/release.sh major",
+    "release:minor": "bash scripts/release.sh minor",
+    "release:patch": "bash scripts/release.sh patch"
   },
-  "types": "dist/lib/index.d.ts",
-  "version": "0.2.3"
+  "version": "1.0.4"
 }
