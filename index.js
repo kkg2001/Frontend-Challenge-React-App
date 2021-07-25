@@ -3,77 +3,55 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-Object.defineProperty(exports, "findPackageData", {
+Object.defineProperty(exports, "default", {
   enumerable: true,
   get: function () {
-    return _package.findPackageData;
+    return _full.default;
   }
 });
-Object.defineProperty(exports, "findConfigUpwards", {
-  enumerable: true,
-  get: function () {
-    return _configuration.findConfigUpwards;
-  }
-});
-Object.defineProperty(exports, "findRelativeConfig", {
-  enumerable: true,
-  get: function () {
-    return _configuration.findRelativeConfig;
-  }
-});
-Object.defineProperty(exports, "findRootConfig", {
-  enumerable: true,
-  get: function () {
-    return _configuration.findRootConfig;
-  }
-});
-Object.defineProperty(exports, "loadConfig", {
-  enumerable: true,
-  get: function () {
-    return _configuration.loadConfig;
-  }
-});
-Object.defineProperty(exports, "resolveShowConfigPath", {
-  enumerable: true,
-  get: function () {
-    return _configuration.resolveShowConfigPath;
-  }
-});
-Object.defineProperty(exports, "ROOT_CONFIG_FILENAMES", {
-  enumerable: true,
-  get: function () {
-    return _configuration.ROOT_CONFIG_FILENAMES;
-  }
-});
-Object.defineProperty(exports, "resolvePlugin", {
-  enumerable: true,
-  get: function () {
-    return _plugins.resolvePlugin;
-  }
-});
-Object.defineProperty(exports, "resolvePreset", {
-  enumerable: true,
-  get: function () {
-    return _plugins.resolvePreset;
-  }
-});
-Object.defineProperty(exports, "loadPlugin", {
-  enumerable: true,
-  get: function () {
-    return _plugins.loadPlugin;
-  }
-});
-Object.defineProperty(exports, "loadPreset", {
-  enumerable: true,
-  get: function () {
-    return _plugins.loadPreset;
-  }
+exports.loadOptionsAsync = exports.loadOptionsSync = exports.loadOptions = exports.loadPartialConfigAsync = exports.loadPartialConfigSync = exports.loadPartialConfig = void 0;
+
+function _gensync() {
+  const data = _interopRequireDefault(require("gensync"));
+
+  _gensync = function () {
+    return data;
+  };
+
+  return data;
+}
+
+var _full = _interopRequireDefault(require("./full"));
+
+var _partial = require("./partial");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+const loadOptionsRunner = (0, _gensync().default)(function* (opts) {
+  var _config$options;
+
+  const config = yield* (0, _full.default)(opts);
+  return (_config$options = config == null ? void 0 : config.options) != null ? _config$options : null;
 });
 
-var _package = require("./package");
+const maybeErrback = runner => (opts, callback) => {
+  if (callback === undefined && typeof opts === "function") {
+    callback = opts;
+    opts = undefined;
+  }
 
-var _configuration = require("./configuration");
+  return callback ? runner.errback(opts, callback) : runner.sync(opts);
+};
 
-var _plugins = require("./plugins");
-
-({});
+const loadPartialConfig = maybeErrback(_partial.loadPartialConfig);
+exports.loadPartialConfig = loadPartialConfig;
+const loadPartialConfigSync = _partial.loadPartialConfig.sync;
+exports.loadPartialConfigSync = loadPartialConfigSync;
+const loadPartialConfigAsync = _partial.loadPartialConfig.async;
+exports.loadPartialConfigAsync = loadPartialConfigAsync;
+const loadOptions = maybeErrback(loadOptionsRunner);
+exports.loadOptions = loadOptions;
+const loadOptionsSync = loadOptionsRunner.sync;
+exports.loadOptionsSync = loadOptionsSync;
+const loadOptionsAsync = loadOptionsRunner.async;
+exports.loadOptionsAsync = loadOptionsAsync;
