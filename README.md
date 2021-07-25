@@ -1,19 +1,19 @@
-# @babel/runtime-corejs3
+# @babel/runtime
 
-> babel's modular runtime helpers with core-js@3 polyfilling
+> babel's modular runtime helpers
 
-See our website [@babel/runtime-corejs3](https://babeljs.io/docs/en/babel-runtime-corejs3) for more information.
+See our website [@babel/runtime](https://babeljs.io/docs/en/babel-runtime) for more information.
 
 ## Install
 
 Using npm:
 
 ```sh
-npm install --save-dev @babel/runtime-corejs3
+npm install --save @babel/runtime
 ```
 
 or using yarn:
 
 ```sh
-yarn add @babel/runtime-corejs3 --dev
+yarn add @babel/runtime 
 ```
