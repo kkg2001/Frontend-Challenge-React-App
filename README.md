@@ -1,64 +1,70 @@
-# @istanbuljs/load-nyc-config
+# Getting Started with Create React App
 
-The utility function which NYC uses to load configuration.
-This can be used by outside programs to calculate the configuration.
-Command-line arguments are not considered by this function.
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-```js
-const {loadNycConfig} = require('@istanbuljs/load-nyc-config');
+## Available Scripts
 
-(async () {
-  console.log(await loadNycConfig());
-})();
-```
+In the project directory, you can run:
 
-## loadNycConfig([options])
+### `npm start`
 
-### options.cwd
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-Type: `string`
-Default: `cwd` from parent nyc process or `process.cwd()`
+The page will reload if you make edits.\
+You will also see any lint errors in the console.
 
-### options.nycrcPath
+### `npm test`
 
-Type: `string`
-Default: `undefined`
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-Name of the file containing nyc configuration.
-This can be a relative or absolute path.
-Relative paths can exist at `options.cwd` or any parent directory.
-If an nycrc is specified but cannot be found an exception is thrown.
+### `npm run build`
 
-If no nycrc option is provided the default priority of config files are:
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
-* .nycrc
-* .nycrc.json
-* .nycrc.yml
-* .nycrc.yaml
-* nyc.config.js
-* nyc.config.cjs
-* nyc.config.mjs
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
 
-## Configuration merging
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-Configuration is first loaded from `package.json` if found, this serves as the package
-defaults.  These options can be overridden by an nycrc if found.  Arrays are not merged,
-so if `package.json` sets `"require": ["@babel/register"]` and `.nycrc` sets `"require": ["esm"]`
-the effective require setting will only include `"esm"`.
+### `npm run eject`
 
-## isLoading
+**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-```js
-const {isLoading} = require('@istanbuljs/load-nyc-config');
+If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-console.log(isLoading());
-```
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-In some cases source transformation hooks can get installed before the configuration is
-loaded.  This allows hooks to ignore source loads that occur during configuration load.
+You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## `@istanbuljs/load-nyc-config` for enterprise
+## Learn More
 
-Available as part of the Tidelift Subscription.
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-The maintainers of `@istanbuljs/load-nyc-config` and thousands of other packages are working with Tidelift to deliver commercial support and maintenance for the open source dependencies you use to build your applications. Save time, reduce risk, and improve code health, while paying the maintainers of the exact dependencies you use. [Learn more.](https://tidelift.com/subscription/pkg/npm-istanbuljs-load-nyc-config?utm_source=npm-istanbuljs-load-nyc-config&utm_medium=referral&utm_campaign=enterprise)
+To learn React, check out the [React documentation](https://reactjs.org/).
+
+### Code Splitting
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+
+### Analyzing the Bundle Size
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+
+### Making a Progressive Web App
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+
+### Advanced Configuration
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+
+### Deployment
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+
+### `npm run build` fails to minify
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
