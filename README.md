@@ -1,19 +1,19 @@
-# @babel/code-frame
+# @babel/runtime-corejs3
 
-> Generate errors that contain a code frame that point to source locations.
+> babel's modular runtime helpers with core-js@3 polyfilling
 
-See our website [@babel/code-frame](https://babeljs.io/docs/en/babel-code-frame) for more information.
+See our website [@babel/runtime-corejs3](https://babeljs.io/docs/en/babel-runtime-corejs3) for more information.
 
 ## Install
 
 Using npm:
 
 ```sh
-npm install --save-dev @babel/code-frame
+npm install --save-dev @babel/runtime-corejs3
 ```
 
 or using yarn:
 
 ```sh
-yarn add @babel/code-frame --dev
+yarn add @babel/runtime-corejs3 --dev
 ```
